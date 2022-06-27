@@ -134,10 +134,14 @@ def getdata3(request):
         tree = ET.parse(f)
         root = tree.getroot()
         #print(len(root[0].tag)
-        #print(root[0][5][0].text)
-        print('----------------------------')
-        xc = 5
-        while xc < 10:
+
+        #for child in root[0]:
+        #    print(child.tag, child.attrib)
+
+        #print(len(root[0]))
+        #print('----------------------------')
+        xc = 4
+        while xc < len(root[0]):
             for child in root[0][xc]:
                 #print('CT:',child.tag,'CT:',child.text,)
                 if child.tag == 'author':
