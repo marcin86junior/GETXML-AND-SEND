@@ -1,5 +1,5 @@
-GETXML-AND-SEND
-=====================
+PackageSearchEngineREST
+=======================
 
 ![alt text](http://marcin86.pythonanywhere.com/static/MegaUploadpic.PNG)
 
