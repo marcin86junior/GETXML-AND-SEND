@@ -1,7 +1,7 @@
 PackageSearchEngineREST
 =======================
 
-![alt text](http://marcin86.pythonanywhere.com/static/MegaUploadpic.PNG)
+![alt text](http://marcin86.pythonanywhere.com/static/PythonSearchREST.JPG)
 
 Overview
 --------
