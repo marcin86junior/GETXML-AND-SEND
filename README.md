@@ -6,17 +6,8 @@ PackageSearchEngineREST
 Overview
 --------
 
-GETXML-AND-SEND is an open-source website for uploading pictures. 
-Django/REST technology is used for permission and authorization.
-We have few group for specific users/clients:
-
-* **Basic group** for newcomers for free 200x200 picture
-
-* **Premium group** for clients that require orginal pictures, 200x200 and 400x400
-
-* **Special Enterprise group** for clients that require expire links counted in time (30-30000)
-
-* **Special Custom group** for clients that require special size of thumbs e.g. 123x123
+PackageSearchEngineREST is an open-source website for checking new python package. 
+Django/REST technology is used for searching in database. 
 
 Requirements:
 -------------
@@ -29,22 +20,17 @@ Installation:
 -------------
 
 
-	Create new folder "MegaPictureUploadREST" and open it:
-	git clone https://github.com/marcin86junior/MegaPictureUploadREST.git .
+	Create new folder "PackageSearchEngineREST" and open it:
+	git clone https://github.com/marcin86junior/PackageSearchEngineREST.git .
 	python -m venv myvenv
 	.\myvenv\Scripts\activate
 	pip install -r requirements.txt
-	
-	Change in setting.py (django_rest_imageupload_backend\django_rest_imageupload_backend)
-	MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'django_rest_imageupload_backend/uploaded_media') #for lockal
-	#MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_media') #for Docker
-
 	cd django_rest_imageupload_backend\
 	python manage.py migrate
-	python manage.py migrate --run-syncdb
-	python manage.py loaddata group.json users.json data.json
+	python manage.py makemigrations
+	python manage.py migrate	
 	python .\manage.py runserver
-	http://127.0.0.1:8000/api/
+	http://127.0.0.1:8000/
 	*python manage.py createsuperuser (marcin/123)
 
 
