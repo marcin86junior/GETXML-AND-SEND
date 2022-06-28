@@ -13,10 +13,11 @@ urlpatterns = [
     path('booksauthor=<authorname>', views.BookAuthorList.as_view()),
     path('booksauthor=<authorname1>/author=<authorname2>', views.BookAuthorList2.as_view()),
     path('title=<titlename>', views.BookTitleList.as_view()),
-    path('bookshomepage/', views.homepage),
+
     path('main/', views.main),
-    path('bookshomepage/addbooks1/', views.getdata1),
-    path('bookshomepage/addbooks2/', views.getdata2),
-    path('bookshomepage/addbooks3/', views.getdata3),
-    path('bookshomepage/deletebooks2/', views.deletedata2),
+    path('options/', views.options),
+    path('options/addbooks1/', views.getdata1),
+    path('options/addbooks2/', views.getdata2),
+    path('options/addbooks3/', views.getdata3),
+    path('options/deletebooks2/', views.deletedata2),
 ]

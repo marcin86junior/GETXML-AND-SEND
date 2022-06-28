@@ -22,7 +22,7 @@ class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
     filter_fields = {'authors': ['startswith'], 'title': ['startswith'] ,'published_date': ['startswith'] }
-    search_fields = ['authors','published_date']
+    search_fields = ['authors', 'title',]
     ordering_fields = ['published_date','id']
 
 class BookYearList(generics.ListAPIView):
@@ -68,8 +68,8 @@ class BookTitleList(generics.ListAPIView):
         titlename = self.kwargs['titlename']
         return books.objects.filter(title = titlename)
 
-def homepage(request):
-    return render(request, 'booksapi/homepage.html')
+def options(request):
+    return render(request, 'booksapi/options.html')
 
 def main(request):
     return render(request, 'booksapi/main.html')
@@ -197,6 +197,6 @@ def getdata3(request):
 
 def deletedata2(request):
     for booksx in books.objects.all():
-        if booksx.id > 11:
+        #if booksx.id > 11:
             booksx.delete()
     return render(request, 'booksapi/data2deleted.html')
