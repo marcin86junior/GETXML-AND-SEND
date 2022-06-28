@@ -1,4 +1,3 @@
-from urllib.request import urlopen
 from rest_framework import viewsets, generics
 from getxml.serializers import BookSerializer
 from .models import books
@@ -9,17 +8,11 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 
 from django.shortcuts import render, redirect, render
 import requests
-from xml.etree import ElementTree
-import xmltodict
 import xml.etree.ElementTree as ET
 
 from urllib.parse import urlparse
 from urllib.request import urlopen
-import xml.etree.ElementTree as ET
 
-
-
-# Create your views here.
 
 class BookViewSet(viewsets.ModelViewSet):
     """
@@ -28,7 +21,7 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = books.objects.all()
     serializer_class = BookSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
-    filter_fields = {'authors': ['startswith'],'published_date': ['startswith'] }
+    filter_fields = {'authors': ['startswith'], 'title': ['startswith'] ,'published_date': ['startswith'] }
     search_fields = ['authors','published_date']
     ordering_fields = ['published_date','id']
 
@@ -65,8 +58,21 @@ class BookAuthorList2(generics.ListAPIView):
         print(authorname2)
         return books.objects.filter(authors = authorname1).filter(authors = authorname2)
 
+class BookTitleList(generics.ListAPIView):
+    serializer_class = BookSerializer
+    def get_queryset(self):
+        """
+        This view should return a list of all the books 
+        determined by the author name.
+        """
+        titlename = self.kwargs['titlename']
+        return books.objects.filter(title = titlename)
+
 def homepage(request):
     return render(request, 'booksapi/homepage.html')
+
+def main(request):
+    return render(request, 'booksapi/main.html')
 
 def getdata1(request):
     url = 'https://www.googleapis.com/books/v1/volumes?q=Hobbit'
@@ -130,6 +136,7 @@ def getdata3(request):
     url = 'https://www.googleapis.com/books/v1/volumes?q=war'
     data1 = requests.get(url).json()
 
+    
     with urlopen('https://pypi.org/rss/packages.xml') as f:
         tree = ET.parse(f)
         root = tree.getroot()
