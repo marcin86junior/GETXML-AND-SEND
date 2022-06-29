@@ -1,18 +1,18 @@
-PackageSearchEngineREST
-=======================
+SearchEngineREST
+================
 
 ![alt text](http://marcin86.pythonanywhere.com/static/PythonSearchREST.JPG)
 
 Overview
 --------
 
-PackageSearchEngineREST is an open-source website for checking new python package. 
-Django/REST technology is used for searching in database. 
+SearchEngineREST is an open-source website for checking new python package. 
+Django/REST technology is used for searching in database and recovery.
 
 Requirements:
 -------------
 
-	Python 3.8.x (3.9.1 working in Docker)
+	Python 3.8.x
 	Django 3.2.12
 	Djangorestframework 3.13.x
 
@@ -20,18 +20,16 @@ Installation:
 -------------
 
 
-	Create new folder "PackageSearchEngineREST" and open it:
+	Create new folder "SearchEngineREST" and open it:
 	git clone https://github.com/marcin86junior/PackageSearchEngineREST.git .
 	python -m venv myvenv
 	.\myvenv\Scripts\activate
 	pip install -r requirements.txt
-	cd django_rest_imageupload_backend\
+	cd mysite\
 	python manage.py migrate
 	python manage.py makemigrations
-	python manage.py migrate	
 	python .\manage.py runserver
 	http://127.0.0.1:8000/
-	*python manage.py createsuperuser (marcin/123)
 
 
 Testing:
@@ -45,13 +43,13 @@ Testing:
 Docker:
 -------
 
-	Create new folder "MegaPictureUploadREST" and open it:
-	git clone https://github.com/marcin86junior/MegaPictureUploadREST.git .
-	cd django_rest_imageupload_backend\
+	Create new folder "SearchEngineREST" and open it:
+	git clone https://github.com/marcin86junior/PackageSearchEngineREST.git .
+	cd mysite\
 	"Open Doker Desktop"
-	format file in \django_rest_imageupload_backend\docker-entrypoint.sh    CRLF->LF
+	"CRLF->LF" in \django_rest_imageupload_backend\docker-entrypoint.sh    
 	docker-compose up
-	http://127.0.0.1:8000/api/
+	http://127.0.0.1:8000/
 	Test:
 	docker-compose run web python3 manage.py test
 
@@ -75,18 +73,5 @@ Issues
 
 	At the moment there are few issuse:
 
-	- In enterprise and custom group we don't have expire tokens yet. We can check only
-	  expire date / created date. This function will be added shortly.
-	- docker have differnt main PATH (/code/) - should be corrected in web: / media
-	- docker should have migrations in entrypoint.sh (almost fixed)
-	- missing some view test (low coverage)
-
-	Function in the dev/testing phase - token generator:
-
-	http://127.0.0.1:8000/obtain-token/
-	log-in: b1 / pass: 123
-	-> create token
-	http://127.0.0.1:8000/custom-url/login/
-	log-in: b1 / pass: 123
-	-> POST
-	We have: list of tokens of user b1
+	- xxx
+	- yyy
