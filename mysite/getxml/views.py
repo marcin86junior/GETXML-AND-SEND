@@ -13,6 +13,9 @@ import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
+from django.http import JsonResponse
+import json
+
 
 class BookViewSet(viewsets.ModelViewSet):
     """
@@ -200,3 +203,7 @@ def deletedata2(request):
         #if booksx.id > 11:
             booksx.delete()
     return render(request, 'booksapi/data2deleted.html')
+
+def json(request):
+    data = list(books.objects.values())
+    return JsonResponse(data, safe=False)

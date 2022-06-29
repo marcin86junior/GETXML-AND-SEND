@@ -20,4 +20,5 @@ urlpatterns = [
     path('options/addbooks2/', views.getdata2),
     path('options/addbooks3/', views.getdata3),
     path('options/deletebooks2/', views.deletedata2),
+    path('options/json/', views.json),
 ]

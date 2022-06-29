@@ -113,13 +113,18 @@
           <input type="submit" value="Torrentz" formaction="https://www.torrentz.com/search" onclick="document.getElementById('box').name='q'" />
           <input type="submit" name="submit" value="Youtube" />
       </form> -->
+
+
+
+
       <big><big><big>
-
-
         <form action="/books" method="GET">
-
+          <input type="text" id="box" name="search" maxlength="128" placeholder="title or author" autofocus />
+          <input type="submit" value="Search"/>
+          <input type="submit" value="Author" formaction="/books/" onclick="document.getElementById('box').name='authors__startswith'" />          <!--
           <input type="text" id="box" name="authors__startswith=" maxlength="128" placeholder="title or author" autofocus />
           <input type="submit" value="Search" formaction="/books/" onclick="document.getElementById('box').name='search'" />
+          -->
           <!--
           <input type="submit" value="Title" formaction="/books/" onclick="document.getElementById('box').name='title__startswith'" />
           <input type="submit" value="Author" formaction="/books/" onclick="document.getElementById('box').name='authors__startswith'" />
@@ -127,19 +132,34 @@
           -->
       </form>
     </big></big></big>
-    
-        <!--
-      <p></p>
-      <br>
-        <a href="/books" class="btn btn-primary my-2">List of PPI packages registered at our database</a>
-      </p>-->
-      <br>
-      <p>
-        <a href="https://pypi.org/rss/packages.xml" class="btn btn-success my-2">https://pypi.org/rss/packages.xml</a>
-      </p>
-      <p>
-        <a href="/options" class="btn btn-primary my-2">Quick search tests / adding and deleting data</a>
-      </p>
+
+    <br>
+    <p>
+    <a href="https://pypi.org/rss/packages.xml" class="btn btn-success my-2">https://pypi.org/rss/packages.xml</a>
+    </p>
+    <p>
+    <a href="/options" class="btn btn-primary my-2">Quick search tests / adding and deleting data</a>
+    </p>
+
+              <!-- 
+                <form action="/books" method="get" id="searchForm" class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <select name="fdfd" id="" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <option value="all" name="ssssssssssss">All</option>
+                            <option value="username">Author</option>
+                            <option value="email">Title</option>
+                            <option value="email"></option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                           <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </form>  
+              -->     
+              
     </div>
   </section>
 
@@ -156,6 +176,26 @@
     </p>
   </div>
 </footer>
+
+<script>
+  alert('executed as soon as it is reached (as the document is downloaded)');
+  $(document).ready(function() {
+        var max_fields = 10;
+        var wrapper = $("#contant");
+        var add_button = $("#add_form_field");
+    
+        var x = 1;
+        $(add_button).click(function(e) {
+            e.preventDefault();
+            if (x < max_fields) {
+                x++;
+                $(wrapper).append('<div id="input-social" class="input-container"><input type="text" id="social" class="col-11 form-control" name="fname" placeholder="fname"> <span id="deleteInput" class="AutoInput" title="Delete"><i class="fas fa-trash-alt"></i></span></div>');
+            } else {
+                alert('You Riched limit.')
+            }
+        });
+</script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
