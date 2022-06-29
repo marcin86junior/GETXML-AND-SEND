@@ -21,3 +21,19 @@ Rozwiązanie dostarcz w postaci repozytorium github.
 Opcjonalnie:
 
 Stwórz JSON API, które umożliwi wyszukanie pakietu dokładnie na takiej samej zasadzie jak wyszukiwarka webowa, z tym, że dane zostaną wysłane do klienta w postaci JSON, a nie HTML.
+
+-------------------
+
+Do zrobienia:
+- celery-beat: raz dziennie pobierze wszystkie informacje
++ sprawdzić dockera
++ testy
+
+- szukaj po mail/author (dodaj 2 opcje)
+- szukaj po opisie
+- model (na końcu)
+- read.me (na końcu)
++ wyłącz admina
+
+++ dodawanie odzyskanych danych
+++ celery-beat: wysyła do kogoś model JSON
