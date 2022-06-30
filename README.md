@@ -73,5 +73,17 @@ Issues
 
 	At the moment there are few issuse:
 
-	- xxx
-	- yyy
+	Do zrobienia:
+	+ celery-beat: raz dziennie pobierze wszystkie informacje
+	+ testy
+	++ celery-beat: wysyła do kogoś model JSON
+	+++ dodawanie odzyskanych danych
+	
+	- szukaj po mail/author (dodaj 2 opcje)
+	- szukaj po opisie
+	- model (na końcu)
+	- read.me (na końcu)
+	- wyłącz admina
+	- sprawdzić dockera OK
+
+	+++ strone 
